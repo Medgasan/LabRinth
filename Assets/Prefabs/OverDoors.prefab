@@ -177,7 +177,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 7023294281531485357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.75, z: -0.010707143}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.010707143}
   m_LocalScale: {x: 1, y: 0.25, z: 0.14285713}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,20 +295,20 @@ AudioSource:
   m_GameObject: {fileID: 7023294281531485357}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3606501195260388975, guid: 4f537100bc539dd438074b9dadb74966, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 33de011fef9d7e944b727ef54cc550a4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.358
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 13.42
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

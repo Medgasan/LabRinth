@@ -7,6 +7,6 @@ public class OverDoorBehavior : MonoBehaviour
 
     void Start()
     {
-        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
     }
 }
