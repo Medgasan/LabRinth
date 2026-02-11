@@ -58,6 +58,7 @@ public class LaserBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (!laserLine.isVisible) return;
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo))
         {
