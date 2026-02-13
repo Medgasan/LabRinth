@@ -5,21 +5,17 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-
 public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float stepDistance = 2f;
     [SerializeField] private TMP_Text text;
     [SerializeField] private AudioSource stepSound;
     [SerializeField] private AudioSource takeDamage;
+    [SerializeField] private Animator animator;
 
     private GameObject textGO;
-    private CinemachineImpulseSource cinemachineImpulseSource;
     private CharacterController characterController;
     private Vector3 moveInput;
     private float rotation;
@@ -28,18 +24,12 @@ public class Player : MonoBehaviour
     private Collider colliderObject;
     private bool takenDamagePlaying = false;
 
-    // Steps sound clip array
-    private AudioClip[] stepClips;
-
-
-
     void Start()
     {
         //stepClips = Resources.LoadAll<AudioClip>("Sounds/Steps/");
         //Debug.Log("Loaded " + stepClips.Length + " step sound clips.");
 
         characterController = GetComponent<CharacterController>();
-        cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
         textGO = text.gameObject;
     }
 
@@ -93,15 +83,13 @@ public class Player : MonoBehaviour
 
         if (accumulatedDistance >= stepDistance)
         {
-            cinemachineImpulseSource.GenerateImpulse();
-            //AudioClip clip = stepClips[UnityEngine.Random.Range(0, stepClips.Length)];
             stepSound.volume = UnityEngine.Random.Range(0.9f, 1.1f);
             stepSound.Play();
-            //stepsound.PlayOneShot(clip);
             accumulatedDistance = 0f;
         }
 
-        characterController.Move(globalMove * movementSpeed * Time.deltaTime);
+        characterController.Move(globalMove.normalized * movementSpeed * Time.deltaTime);
+        animator.SetFloat("Speed", characterController.velocity.magnitude);
     }
 
 
@@ -127,7 +115,7 @@ public class Player : MonoBehaviour
     public async Task TakenDamage(Collider collider)
     {
         if (takenDamagePlaying) return;
-        takenDamagePlaying = true; // Evitamos que se llame múltiples veces
+        takenDamagePlaying = true; // Evitamos que se llame mï¿½ltiples veces
         Debug.Log("Player has taken damage!");
         if (!takeDamage.isPlaying) takeDamage.Play();
         text.text = "You have been hit! \n Restarting Game...";
