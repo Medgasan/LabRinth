@@ -75,8 +75,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-
-
     }
 
 
@@ -105,11 +103,6 @@ public class Player : MonoBehaviour
 
         characterController.Move(globalMove * movementSpeed * Time.deltaTime);
     }
-
-
-
-
-
 
 
     internal void InteractableObject(Collider collider)

@@ -1,0 +1,285 @@
+fileFormatVersion: 2
+guid: 93e7ee6e6b30aa14d9af6cb5c4433adc
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arm Metal
+    second: {fileID: 2100000, guid: f24c748e269d06041b32f8f6fb700d05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arm Plastic
+    second: {fileID: 2100000, guid: 78bcbc262c29d324db2dfa81b34f29d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bright Blue Glow
+    second: {fileID: 2100000, guid: a1a628648c6ccc44ab8dd382439201c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bulb.001
+    second: {fileID: 2100000, guid: 3485454ad55562a4586380fa26149dc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Blue Glow
+    second: {fileID: 2100000, guid: e0f9dd1d2ab860c45ae2a1f9ddd1ce30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dome Aluminum
+    second: {fileID: 2100000, guid: fecd1a5a60f69674c8fca39f20d09703, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dome Bolt
+    second: {fileID: 2100000, guid: 05036bdb3e042de40bb6df810c25d2c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dome Brass
+    second: {fileID: 2100000, guid: 9737650a179740f4293a290d27f90324, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dome Bronze
+    second: {fileID: 2100000, guid: 4dc224b203ca1d948abc4cf7f9c31062, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dome Matte Black
+    second: {fileID: 2100000, guid: b2554fd4879c4ac4aa57f6f71678da08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dome Polycarbonate
+    second: {fileID: 2100000, guid: 995eb233ad437cc469787dfab87bf9b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Expanded Steel
+    second: {fileID: 2100000, guid: a394f0665370d2b4593942f597515f24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye Stalk Black Plastic
+    second: {fileID: 2100000, guid: 46725102a1d517c458b03bbbe4b397db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye Stalk Black Rubber
+    second: {fileID: 2100000, guid: 052b9c4f3aad22949b14703ebc109430, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye Stalk Matte Black
+    second: {fileID: 2100000, guid: 1fcb7fcad6c1977418b1679c3ddd97c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye Stalk Polycarbonate
+    second: {fileID: 2100000, guid: e873ab8feef92514ca628a9ba9350381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye stalk Metal
+    second: {fileID: 2100000, guid: f6f49b1aaf37e8048809778e92a8c311, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fender Grey
+    second: {fileID: 2100000, guid: c443c70427287b64fa76d9a6606f3ae9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frosted Plastic
+    second: {fileID: 2100000, guid: fe9cca8d527715b44b36ebad5802480d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gun Aluminum
+    second: {fileID: 2100000, guid: 863608ea52fd384469ce8ae6f4e3ef8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gun Black Plastic
+    second: {fileID: 2100000, guid: b0266018fc1f4d248ac008f35563fdd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gun Metal
+    second: {fileID: 2100000, guid: fa36af28e8ef41d499aa82d02dfa31dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 4b56f6209e395b34b94659b267875637, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neck Bronze
+    second: {fileID: 2100000, guid: 2dec2674a0a31f64a82dbb1b4549c06c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neck Plastic
+    second: {fileID: 2100000, guid: ba3158e38dfd1c34b8b7151a9cdada2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plunger Metal
+    second: {fileID: 2100000, guid: 31e33c6da698c5f4da5f6f24f8c77286, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plunger Rubber
+    second: {fileID: 2100000, guid: cd8005bb02cb1dd4e854b60790c3b7ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoulder Bolt
+    second: {fileID: 2100000, guid: 9bc1b5f3a8f32e5428d104e474db2b4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoulder Bronze
+    second: {fileID: 2100000, guid: bba3968bae7f50d47b9a8282f7d06364, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoulder Gold
+    second: {fileID: 2100000, guid: 27fa4d2e52d5e844cb144ceac8036f15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skirt Bolt
+    second: {fileID: 2100000, guid: 9ee988a2bf5ecf1408b75dc6ed2fcff1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skirt Bronze
+    second: {fileID: 2100000, guid: 55705dddbb260914cbb37285881a391b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skirt Gold
+    second: {fileID: 2100000, guid: 76e263f51e4a9ad44b9a189536a9c7ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skirt Rubber
+    second: {fileID: 2100000, guid: 3e400269b90c7d34d9aa391b838ec750, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tube Metal
+    second: {fileID: 2100000, guid: c8d168b885ccebe4fb2e4a2aa4a6e040, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
