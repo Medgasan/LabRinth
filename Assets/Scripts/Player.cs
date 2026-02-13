@@ -1,15 +1,11 @@
-using System;
-using System.Threading.Tasks;
+ï»¿using System.Collections;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-
     [Header("Movement")]
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float movementSpeed = 5f;
@@ -25,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [Header("Health")]
     [SerializeField] private PlayerHealth playerHealth;
 
-
     private GameObject textGO;
     private CinemachineImpulseSource cinemachineImpulseSource;
     private CharacterController characterController;
@@ -34,24 +29,13 @@ public class PlayerController : MonoBehaviour
     private float gravity = -9.81f;
     private float accumulatedDistance = 0f;
     private Collider colliderObject;
-    private bool takenDamagePlaying = false;
-
-    // Steps sound clip array
-    private AudioClip[] stepClips;
-
-
 
     void Start()
     {
-        //stepClips = Resources.LoadAll<AudioClip>("Sounds/Steps/");
-        //Debug.Log("Loaded " + stepClips.Length + " step sound clips.");
-
         characterController = GetComponent<CharacterController>();
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
         textGO = text.gameObject;
     }
-
-
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -60,32 +44,24 @@ public class PlayerController : MonoBehaviour
         rotation = move.x;
     }
 
-
     public void Interact(InputAction.CallbackContext context)
     {
         if (context.performed && colliderObject != null)
         {
-            Debug.Log("Interacting with " + colliderObject.gameObject.name);
-            AbstractSwitcherBehaviour buttonSwitch = colliderObject.gameObject.GetComponentInChildren<AbstractSwitcherBehaviour>();
+            AbstractSwitcherBehaviour buttonSwitch =
+                colliderObject.GetComponentInChildren<AbstractSwitcherBehaviour>();
+
             if (buttonSwitch != null)
             {
                 buttonSwitch.Action();
             }
-            else
-            {
-                Debug.Log("No ButtonSwitchBehaviour found on the object.");
-            }
-            Debug.Log("Interact pressed");
         }
     }
-
 
     void Update()
     {
         Movement();
     }
-
-
 
     void Movement()
     {
@@ -93,7 +69,8 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(0, rotation * rotationSpeed * Time.deltaTime, 0);
 
-        if (!characterController.isGrounded) moveInput.y += gravity * Time.deltaTime;
+        if (!characterController.isGrounded)
+            moveInput.y += gravity * Time.deltaTime;
 
         Vector3 globalMove = transform.TransformDirection(moveInput);
 
@@ -102,35 +79,27 @@ public class PlayerController : MonoBehaviour
         if (accumulatedDistance >= stepDistance)
         {
             cinemachineImpulseSource.GenerateImpulse();
-            //AudioClip clip = stepClips[UnityEngine.Random.Range(0, stepClips.Length)];
-            stepSound.volume = UnityEngine.Random.Range(0.9f, 1.1f);
+            stepSound.volume = Random.Range(0.9f, 1.1f);
             stepSound.Play();
-            //stepsound.PlayOneShot(clip);
             accumulatedDistance = 0f;
         }
 
         characterController.Move(globalMove * movementSpeed * Time.deltaTime);
     }
 
-
     internal void InteractableObject(Collider collider)
     {
-        AbstractSwitcherBehaviour abstractSwitcher = colliderObject?.GetComponent<AbstractSwitcherBehaviour>();
-
-        if (collider == null) 
+        if (collider == null)
         {
             textGO.SetActive(false);
             colliderObject = null;
-            abstractSwitcher?.CannotActivate();
             return;
         }
+
         colliderObject = collider;
-        abstractSwitcher?.CanActivate();
         text.text = "Press (X) or E to activate!";
         textGO.SetActive(true);
-
     }
-
 
     public void TakeDamage(int damage)
     {
@@ -139,22 +108,4 @@ public class PlayerController : MonoBehaviour
 
         playerHealth.TakeHit(damage);
     }
-
-
-    //public async Task TakenDamage(Collider collider)
-    //{
-
-
-
-    //    if (takenDamagePlaying) return;
-    //    takenDamagePlaying = true; // Evitamos que se llame múltiples veces
-    //    Debug.Log("Player has taken damage!");
-    //    if (!takeDamage.isPlaying) takeDamage.Play();
-    //    text.text = "You have been hit! \n Restarting Game...";
-    //    textGO.SetActive(true);
-    //    await Task.Delay(2000);
-    //    textGO.SetActive(false);
-    //    GameManager.Instance.RestartGame();
-    //}
-
 }

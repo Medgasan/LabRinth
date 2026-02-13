@@ -4,7 +4,7 @@ public class RaycastHitBehaviour : MonoBehaviour
 {
     [SerializeField] private float rayDistance = 5f;
     [SerializeField] private string rayLayerTag;
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerController player;
 
     private void FixedUpdate()
     {

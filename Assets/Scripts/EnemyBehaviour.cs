@@ -100,7 +100,7 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator ShotLaser()
     {
         if (isShoting) yield break;
-        Player player = target.GetComponent<Player>();
+        PlayerController player = target.GetComponent<PlayerController>();
         Vector3 distance = player.transform.position - transform.position;
         if (Physics.Raycast(transform.position, distance, out RaycastHit hitInfo))
         {

@@ -7,24 +7,16 @@ using UnityEngine.InputSystem;
 
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerBackup : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [Header("Movement")]
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float stepDistance = 2f;
-
-    [Header("UI")]
     [SerializeField] private TMP_Text text;
-
-    [Header("Audio")]
     [SerializeField] private AudioSource stepSound;
-    [SerializeField] private AudioSource takeDamageSound;
-
-    [Header("Health")]
-    [SerializeField] private PlayerHealth playerHealth;
-
+    [SerializeField] private AudioSource takeDamage;
 
     private GameObject textGO;
     private CinemachineImpulseSource cinemachineImpulseSource;
@@ -132,29 +124,17 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void TakeDamage(int damage)
+    public async Task TakenDamage(Collider collider)
     {
-        if (!takeDamageSound.isPlaying)
-            takeDamageSound.Play();
-
-        playerHealth.TakeHit(damage);
+        if (takenDamagePlaying) return;
+        takenDamagePlaying = true; // Evitamos que se llame múltiples veces
+        Debug.Log("Player has taken damage!");
+        if (!takeDamage.isPlaying) takeDamage.Play();
+        text.text = "You have been hit! \n Restarting Game...";
+        textGO.SetActive(true);
+        await Task.Delay(2000);
+        textGO.SetActive(false);
+        GameManager.Instance.RestartGame();
     }
-
-
-    //public async Task TakenDamage(Collider collider)
-    //{
-
-
-
-    //    if (takenDamagePlaying) return;
-    //    takenDamagePlaying = true; // Evitamos que se llame múltiples veces
-    //    Debug.Log("Player has taken damage!");
-    //    if (!takeDamage.isPlaying) takeDamage.Play();
-    //    text.text = "You have been hit! \n Restarting Game...";
-    //    textGO.SetActive(true);
-    //    await Task.Delay(2000);
-    //    textGO.SetActive(false);
-    //    GameManager.Instance.RestartGame();
-    //}
 
 }
