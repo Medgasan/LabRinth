@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [Header("GameEstatus")]
     [SerializeField] public bool gameFinished = false;
+    [Header("Parameters")]
+    [SerializeField] private int countDownMultiplier = 10;
 
     private float startTime;       // Tiempo al empezar la partida
     private float finalTime = 0f;  // Tiempo congelado al finalizar
@@ -32,7 +34,7 @@ public class ScoreManager : MonoBehaviour
         if (scoreText != null)
         {
             float displayTime = gameFinished ? finalTime : (Time.time - startTime);
-            int timeScore = Mathf.Max(0, 1000 - (int)(displayTime * 10));
+            int timeScore = Mathf.Max(0, 1000 - (int)(displayTime * countDownMultiplier));
 
             // Si aún no hemos calculado la puntuación final, muestra solo la parte temporal
             scoreText.text = gameFinished ? "Final Score: " + finalScore : "Score: " + timeScore;
@@ -60,7 +62,7 @@ public class ScoreManager : MonoBehaviour
             // Guardamos el tiempo final para congelar la puntuación
             finalTime = Time.time - startTime;
 
-            int timeScore = Mathf.Max(0, 1000 - (int)(finalTime * 10));
+            int timeScore = Mathf.Max(0, 1000 - (int)(finalTime * countDownMultiplier));
             int healthScore = remainingHealth * 200;
             int trapPenalty = trapsTriggered * 100;
 
@@ -88,4 +90,5 @@ public class ScoreManager : MonoBehaviour
         if (scoreText != null)
             scoreText.text = "Score: 0";
     }
+
 }

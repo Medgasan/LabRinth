@@ -104,7 +104,6 @@ public class EnemyBehaviour : MonoBehaviour
             laserLine.SetPosition(0, gunTarget.position);
             laserLine.SetPosition(1, hitInfo.point);
 
-            Debug.Log("Distancia:" + Vector3.Distance(hitInfo.point, target.transform.position));
             if (Vector3.Distance(hitInfo.point,target.transform.position) < 6)
                 target.TakeDamage(laserDamage);
         }
