@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Button
   - Hurt
+  - CinemachineTarget
+  - Floor
+  - Walls
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
   - PostProcesing

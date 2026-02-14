@@ -11,6 +11,7 @@ public class FinishLine : MonoBehaviour
 
     IEnumerator FinishRoutine(Player player)
     {
+        ScoreManager.Instance.gameFinished = true;
         yield return new WaitForSeconds(5f);
 
         int remainingHealth = player.GetComponent<PlayerHealth>().GetCurrentHealth();

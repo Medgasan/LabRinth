@@ -15,12 +15,11 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Damage")]
     [SerializeField] Transform gunTarget;
     [SerializeField] LineRenderer laserLine;
-    [SerializeField] float laserDamage= 10f;
+    [SerializeField] int laserDamage= 25;
     [SerializeField] float laserFrecuency = 1f;
-    [SerializeField] Vector3 laserStartOffset = new Vector3(0.68f, 0, 0);
 
 
-    private Transform target = null;
+    private PlayerController target = null;
     private Transform LastTarget = null;
     private NavMeshAgent agent;
     private int currentPatrolPointIndex = 0;
@@ -32,7 +31,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         vista = GetComponent<Vista>();
-        //laserLine = GetComponentInChildren<LineRenderer>();
     }
 
 
@@ -40,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
 
         target = vista.GetPlayerInVista();
-
+        
         if (target != null)
         {
             SeekAndDestroyEnemy();
@@ -70,7 +68,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void SeekAndDestroyEnemy()
     {
-        LastTarget = target;
+        LastTarget = target.transform;
         agent.speed = 7f;
         agent.SetDestination(LastTarget.position);
         if (Vector3.Distance(transform.position, LastTarget.position) < maxDistanceToComprobate)
@@ -100,20 +98,20 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator ShotLaser()
     {
         if (isShoting) yield break;
-        PlayerController player = target.GetComponent<PlayerController>();
-        Vector3 distance = player.transform.position - transform.position;
+        Vector3 distance = target.transform.position - transform.position;
         if (Physics.Raycast(transform.position, distance, out RaycastHit hitInfo))
         {
             laserLine.SetPosition(0, gunTarget.position);
             laserLine.SetPosition(1, hitInfo.point);
+
+            Debug.Log("Distancia:" + Vector3.Distance(hitInfo.point, target.transform.position));
+            if (Vector3.Distance(hitInfo.point,target.transform.position) < 6)
+                target.TakeDamage(laserDamage);
         }
         isShoting = true;
         laserLine.enabled = true;
-        yield return new WaitForSeconds(laserFrecuency);
-
-        //player.Hit(laserDamage);
-
-        Debug.Log("Exterminate!!!!!");
+        ScoreManager.Instance.AddTrap();
+        yield return new WaitForSeconds(0.5f);
         laserLine.enabled = false;
         yield return new WaitForSeconds(laserFrecuency);
         isShoting = false;

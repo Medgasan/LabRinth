@@ -4,10 +4,10 @@ public class Vista : MonoBehaviour
 {
     [SerializeField] float radius = 5f;
 
-    [SerializeField] float maxTime = 1f;
+    [SerializeField] float maxTime = 0.1f;
 
     float currentTime = 0;
-    Transform player;
+    PlayerController player;
 
 
 
@@ -26,12 +26,12 @@ public class Vista : MonoBehaviour
                     if (collider.CompareTag("Player"))
                     {
                         Vector3 direction = collider.transform.position - transform.position;
-                        if (Physics.Raycast(transform.position, direction, out RaycastHit raycastHit, radius))
+                        Vector3 desplazamiento = new Vector3(0, 2, 0);
+                        if (Physics.Raycast(transform.position + desplazamiento, direction, out RaycastHit raycastHit, radius))
                         {
-                            if (raycastHit.collider == collider)
+                            if (raycastHit.collider.Equals(collider))
                             {
-                                player = collider.transform;
-                                //Debug.Log("Dr.Who Detected!!");
+                                player = collider.GetComponent<PlayerController>();
                             }
                         }
 
@@ -42,5 +42,5 @@ public class Vista : MonoBehaviour
         }
     }
 
-    public Transform GetPlayerInVista() { return player; }
+    public PlayerController GetPlayerInVista() { return player; }
 }

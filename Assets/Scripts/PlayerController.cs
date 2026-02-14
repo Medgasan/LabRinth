@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float stepDistance = 2f;
 
     [Header("UI")]
     [SerializeField] private TMP_Text text;
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [Header("Health")]
     [SerializeField] private PlayerHealth playerHealth;
 
+    [Header("Animations")]
     [SerializeField] private Animator animator;
 
 
@@ -32,9 +32,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
     private float rotation;
     private float gravity = -9.81f;
-    private float accumulatedDistance = 0f;
     private Collider colliderObject;
-    private bool takenDamagePlaying = false;
+
 
     void Start()
     {
@@ -52,6 +51,13 @@ public class PlayerController : MonoBehaviour
         Vector2 move = context.ReadValue<Vector2>();
         moveInput = Vector3.forward * move.y;
         rotation = move.x;
+    }
+
+
+    public void OnFootstep()
+    {
+        stepSound.volume = UnityEngine.Random.Range(0.9f, 1.1f);
+        stepSound.Play();
     }
 
 
@@ -83,22 +89,12 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        if (moveInput == Vector3.zero && rotation == 0) return;
 
         transform.Rotate(0, rotation * rotationSpeed * Time.deltaTime, 0);
 
         if (!characterController.isGrounded) moveInput.y += gravity * Time.deltaTime;
 
         Vector3 globalMove = transform.TransformDirection(moveInput);
-
-        accumulatedDistance += globalMove.magnitude * movementSpeed * Time.deltaTime;
-
-        if (accumulatedDistance >= stepDistance)
-        {
-            stepSound.volume = UnityEngine.Random.Range(0.9f, 1.1f);
-            stepSound.Play();
-            accumulatedDistance = 0f;
-        }
 
         characterController.Move(globalMove.normalized * movementSpeed * Time.deltaTime);
         animator.SetFloat("Speed", characterController.velocity.magnitude);
@@ -126,29 +122,9 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
-        if (!takeDamageSound.isPlaying)
+        if (!takeDamageSound.isPlaying && playerHealth.TakeHit(damage))
             takeDamageSound.Play();
 
-        playerHealth.TakeHit(damage);
-
     }
-
-
-    //public async Task TakenDamage(Collider collider)
-    //{
-
-
-
-    //    if (takenDamagePlaying) return;
-    //    takenDamagePlaying = true; // Evitamos que se llame m ltiples veces
-    //    Debug.Log("Player has taken damage!");
-    //    if (!takeDamage.isPlaying) takeDamage.Play();
-    //    text.text = "You have been hit! \n Restarting Game...";
-    //    textGO.SetActive(true);
-    //    await Task.Delay(2000);
-    //    textGO.SetActive(false);
-    //    GameManager.Instance.RestartGame();
-    //}
 
 }

@@ -5,6 +5,7 @@ public class LaserBehaviour : MonoBehaviour
     [SerializeField] float timeToDamage = 1.0f;
     [SerializeField] float timeToStart = 0.5f;
     [SerializeField] LineRenderer laserLine;
+    [SerializeField] int damage = 6;
 
     private float damageTimer = 0.0f;
     private bool canStart = false;
@@ -65,9 +66,12 @@ public class LaserBehaviour : MonoBehaviour
             if (hitInfo.collider != null)
             {
                 Collider collider = hitInfo.collider;
-                if (collider.name.Equals("Player"))
+                if (collider.CompareTag("Player"))
                 {
-                    collider.gameObject.SendMessage("TakenDamage", this.gameObject.GetComponent<Collider>(), SendMessageOptions.DontRequireReceiver);
+                    ScoreManager.Instance.AddTrap();
+                    PlayerController player = collider.GetComponent<PlayerController>();
+                    player.TakeDamage(damage);
+                    //collider.gameObject.SendMessage("TakenDamage", this.gameObject.GetComponent<Collider>(), SendMessageOptions.DontRequireReceiver);
                 }
             }
         }

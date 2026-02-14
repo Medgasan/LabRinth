@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class HurtBehaviour : MonoBehaviour
 {
+    [SerializeField] int damage = 6;
 
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name.Equals("Player"))
+        if (collider.CompareTag("Player"))
         {
-            collider.gameObject.SendMessage("TakenDamage", GetComponent<Collider>(), SendMessageOptions.DontRequireReceiver);
+            ScoreManager.Instance.AddTrap();
+            PlayerController player = collider.GetComponent<PlayerController>();
+            player.TakeDamage(damage);
+
         }
     }
 }

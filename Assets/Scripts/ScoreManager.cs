@@ -7,12 +7,14 @@ public class ScoreManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TMP_Text scoreText;
+    [Header("GameEstatus")]
+    [SerializeField] public bool gameFinished = false;
 
     private float startTime;       // Tiempo al empezar la partida
     private float finalTime = 0f;  // Tiempo congelado al finalizar
     private int trapsTriggered = 0;
     private int finalScore = 0;
-    private bool gameFinished = false;
+    
 
     void Awake()
     {

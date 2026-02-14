@@ -12,6 +12,7 @@ public class LaserDoorBehaviour : AbstractDoorBehaviour
 
     private laserScript[] lasers;
 
+
     public override void ClosedAction()
     {
         Debug.Log("Laser Door ClosedAction called");
@@ -26,6 +27,7 @@ public class LaserDoorBehaviour : AbstractDoorBehaviour
 
     }
 
+
     public override void OpenedAction()
     {
         Debug.Log("Laser Door OpenedAction called");
@@ -39,11 +41,13 @@ public class LaserDoorBehaviour : AbstractDoorBehaviour
         onoffFx.Play();
     }
 
+
     void Start()
     {
         lasers = GetComponentsInChildren<laserScript>();
-        this.SetColor(laserColor);
+        SetColor(laserColor);
     }
+
 
     public override void SetColor(Color color)
     {

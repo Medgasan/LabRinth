@@ -11,8 +11,10 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI Reference")]
     [SerializeField] private Image healthFillImage;       // La barra roja que se llena y vacía
 
+    [Header("Debug")]
+    public bool isInvulnerable = false;
+
     private int currentHealth;
-    private bool isInvulnerable = false;
 
     void Start()
     {
@@ -25,10 +27,10 @@ public class PlayerHealth : MonoBehaviour
     /// El jugador recibe daño de los enemigos.
     /// </summary>
     /// <param name="damage">Cantidad de daño recibida (normalmente 1)</param>
-    public void TakeHit(int damage)
+    public bool TakeHit(int damage)
     {
         if (isInvulnerable || currentHealth <= 0)
-            return;
+            return false;
 
         // Reducimos la vida
         currentHealth -= damage;
@@ -46,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(Invulnerability());
         }
+        return true;
     }
 
     /// <summary>
